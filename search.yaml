@@ -1,0 +1,12 @@
+provider: RecreationDotGov
+recreation_area:
+  - 1117  # Gifford Pinchot
+  - 1106  # Mt Hood Natl Forest
+  - 14492 # Deschutes Natl Forest
+  - 1114  # Willamette Natl Forest
+start_date: 2025-08-30
+end_date: 2025-10-31
+weekends: true
+nights: 2
+notifications: pushover
+search_forever: true

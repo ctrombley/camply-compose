@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+  camply:
+    image: juftin/camply:latest
+    environment:
+      TZ: America/Los_Angeles
+    volumes:
+      - ${PWD}/main.camply:/home/camply/.camply
+      - ${PWD}/search.yaml:/home/camply/search.yaml
+    command: camply campsites --yaml-config /home/camply/search.yaml
+    restart: unless-stopped
