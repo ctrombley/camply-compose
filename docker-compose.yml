@@ -4,6 +4,6 @@ services:
     environment:
       TZ: America/Los_Angeles
     volumes:
-      - ${PWD}/files:/home/camply
-    command: camply campsites --yaml-config /home/camply/search.yaml
+      - ./files:/home/camply
+    command: camply campsites --yaml-config /home/camply/search.yaml; ls -al /home/camply; cat /home/camply/main.camply
     restart: unless-stopped

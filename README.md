@@ -28,7 +28,7 @@ WantedBy="multi-user.target"
 
 ## Configuration
 
-Provide a `files/main.camply` to configure the service.
+Provide a `files/.camply` to configure the service.
 
 ### Pushover notifications
 
