@@ -18,8 +18,9 @@ Requires="docker.service"
 [Service]
 User="ctrombley"
 Type="forking"
-ExecStart="/bin/bash -c 'docker compose -f /home/ctrombley/src/github.com/ctrombley/camply-compose/docker-compose.yml up --detach'"
-ExecStop="/bin/bash -c 'docker compose -f /home/ctrombley/src/github.com/ctrombley/camply-compose/docker-compose.yml stop'"
+WorkingDirectory="/home/ctrombley/src/github.com/ctrombley/camply-compose"
+ExecStart="/bin/bash -c 'docker compose up --detach'"
+ExecStop="/bin/bash -c 'docker compose stop'"
 
 [Install]
 WantedBy="multi-user.target"
@@ -27,7 +28,7 @@ WantedBy="multi-user.target"
 
 ## Configuration
 
-Provide a `main.camply` to configure the service.
+Provide a `files/main.camply` to configure the service.
 
 ### Pushover notifications
 
