@@ -1,6 +1,29 @@
 # camply-compose
 
-Docker configuration for running the camply service.
+Docker configuration for running the [camply](https://github.com/juftin/camply) service.
+
+## Usage
+
+Provide a configuration file and run `docker compose up`.
+
+### systemd
+
+The following systemd configuration can be used to run the service:
+
+```toml
+[Unit]
+Description="Always-on configuration for the camply service."
+Requires="docker.service"
+
+[Service]
+User="ctrombley"
+Type="forking"
+ExecStart="/bin/bash -c 'docker compose -f /home/ctrombley/src/github.com/ctrombley/camply-compose/docker-compose.yml up --detach'"
+ExecStop="/bin/bash -c 'docker compose -f /home/ctrombley/src/github.com/ctrombley/camply-compose/docker-compose.yml stop'"
+
+[Install]
+WantedBy="multi-user.target"
+```
 
 ## Configuration
 
@@ -10,8 +33,11 @@ Provide a `main.camply` to configure the service.
 
 For Pushover notifications:
 
-main.camply
 ```sh
 PUSHOVER_PUSH_USER="..."
 PUSHOVER_PUSH_TOKEN="..."
 ```
+
+### Additional options
+
+[Additional options](https://github.com/juftin/camply/blob/main/docs/examples/example.camply) are available.
